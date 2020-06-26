@@ -12,8 +12,9 @@
 # ----------------------------------------------------------------------------------------------------------------------------
 # Sys.Date()  History
 # ----------------------------------------------------------------------------------------------------------------------------
-# 20200623    The old code will be used and new functions,checking the consistancy of the raw data, will tried to add into that.
-# 20200626    Trying to appy trycatch, but i can't pass the argument to that so i dont know how to warn with the error file.
+# 20200623       The old code will be used and new functions,checking the consistancy of the raw data, will tried to add into that.
+# 20200626       Trying to appy trycatch, but i can't pass the argument to that so i dont know how to warn with the error file.
+# 20200626 21:59 Add save function
 
 # ----------------------------------------------------------------------------------------------------------------------------
 #   validate the name of columns 
@@ -31,12 +32,13 @@ check_consistancy_columns <- function(directory){
     if(length(unique(list.colnames))==1){
         return('All data have the same columns')
     }else{
+        # return the different colnames
         return(as.data.frame(table(unique(lapply(list.colnames,paste0,collapse=',')))) %>% rename(colnames=Var1))
     }
 }
 
 
-merge_files <- function(directory){
+merge_files <- function(directory,targetname=NULL){
     tryCatch({
         check_consistancy_columns(directory)
         },
@@ -51,5 +53,8 @@ merge_files <- function(directory){
     df <- list_df %>% bind_rows(.)
     colnames(df) <- janitor::make_clean_names(colnames(df))
     # print(files)
+    if(!is.null(targetname)){
+        saveREDS(df,paste('../Cleaned Rdata/',targetname,'.RDS'))
+    }
     return(df)
 }
