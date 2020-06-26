@@ -44,7 +44,6 @@ merge_files <- function(directory,targetname=NULL){
         },
         error = function(err){
             message(paste("Something wrong with the raw data"))
-            message(cond)
             return(NULL)
         }
     )
