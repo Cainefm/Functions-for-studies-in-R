@@ -41,8 +41,7 @@ merge_files <- function(directory){
         check_consistancy_columns(directory)
         },
         error = function(err){
-            message(paste("URL does not seem to exist:", url))
-            message("Here's the original error message:")
+            message(paste("Something wrong with the raw data"))
             message(cond)
             return(NULL)
         }
