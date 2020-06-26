@@ -30,8 +30,8 @@ check_and_install_packages <- function(package.name){
             print(paste0(package.name," is loaded correctly"))
         }else{
             print(paste0("trying to install ",package.name))
-            install.packages(cat(package.name),quiet = T)
-            require(package.name)
+            install.packages(package.name,quiet = T)
+            require(package.name,character.only = T)
             if(test){
                 print(paste0(package.name," is installed and loaded"))
             } else {

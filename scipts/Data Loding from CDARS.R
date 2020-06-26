@@ -54,7 +54,7 @@ merge_files <- function(directory,targetname=NULL){
     colnames(df) <- janitor::make_clean_names(colnames(df))
     # print(files)
     if(!is.null(targetname)){
-        saveREDS(df,paste('../Cleaned Rdata/',targetname,'.RDS'))
+        saveRDS(df,paste('../Cleaned Rdata/',targetname,'.RDS'))
     }
     return(df)
 }
