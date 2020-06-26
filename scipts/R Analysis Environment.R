@@ -10,7 +10,8 @@
 # ----------------------------------------------------------------------------------------------------------------------------
 # Sys.Date()  History
 # ----------------------------------------------------------------------------------------------------------------------------
-# 20200623    The old code is included. New functions,checking the library, is added into that.
+# 20200623       The old code is included. New functions,checking the library, is added into that.
+# 20200626       Add new packages, pbapply, which can provide progressive bar for apply family.
 
 
 
@@ -29,7 +30,7 @@ check_and_install_packages <- function(package.name){
             print(paste0(package.name," is loaded correctly"))
         }else{
             print(paste0("trying to install ",package.name))
-            install.packages(package.name,quiet = T)
+            install.packages(cat(package.name),quiet = T)
             if(test){
                 print(paste0(package.name," is installed and loaded"))
             } else {
