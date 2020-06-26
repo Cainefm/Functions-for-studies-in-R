@@ -19,7 +19,7 @@
 # Checking the packages dependency
 # ----------------------------------------------------------------------------------------------------------------------------
 
-packages.I.commonly.used <- c("lubridate","readxl",'reshape2','tidyverse')
+packages.I.commonly.used <- c("lubridate","readxl",'reshape2','tidyverse','pbapply')
 
 
 check_and_install_packages <- function(package.name){
