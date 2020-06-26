@@ -41,11 +41,11 @@ check_consistancy_columns <- function(directory){
 merge_files <- function(directory,targetname=NULL){
     tryCatch({
         check_consistancy_columns(directory)
-        },
-        error = function(err){
-            message(paste("Something wrong with the raw data"))
-            return(NULL)
-        }
+    },
+    error = function(err){
+        message(paste("Something wrong with the raw data"))
+        return(NULL)
+    }
     )
     files <- list.files(path=directory,full.names = T)
     list_df <-   pbapply::pblapply(files,readxl::read_xlsx)
