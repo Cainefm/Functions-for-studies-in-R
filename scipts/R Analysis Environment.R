@@ -13,13 +13,11 @@
 # 20200623       The old code is included. New functions,checking the library, is added into that.
 # 20200626       Add new packages, pbapply, which can provide progressive bar for apply family.
 
-
 # ----------------------------------------------------------------------------------------------------------------------------
 # Checking the packages dependency
 # ----------------------------------------------------------------------------------------------------------------------------
 
 packages.I.commonly.used <- c("lubridate","readxl",'reshape2','tidyverse','pbapply')
-
 
 check_and_install_packages <- function(package.name){
     if(!package.name %in% (.packages())){
@@ -41,7 +39,6 @@ check_and_install_packages <- function(package.name){
     }
 }
 unlist(lapply(packages.I.commonly.used,check_and_install_packages))
-
 
 # ----------------------------------------------------------------------------------------------------------------------------
 # Previous codes
